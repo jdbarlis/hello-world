@@ -1,0 +1,202 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; width: 100%; font-family: 'Poppins', sans-serif; }
+
+/* MAP */
+#map { height: 100vh; width: 100%; }
+
+/* HEADER MENU */
+header {
+  position: fixed; top: 10px; left: 10px; z-index: 1100;
+}
+#menu-btn {
+  font-size: 24px;
+  padding: 12px 24px;
+  background-color: #1e90ff;  /* Blue */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+#menu-btn:hover {
+  background-color: #0077e6;
+  transform: translateY(-2px);
+}
+
+/* BOTTOM MENU */
+#popup-nav {
+  position: fixed; bottom: -100%; left: 0; width: 100%; height: 250px;
+  background: #e6f2ff;  /* Light blue */
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  transition: bottom 0.4s ease;
+  z-index: 1100; pointer-events: none;
+}
+#popup-nav.show { bottom: 0; pointer-events: auto; }
+#popup-nav ul { list-style: none; display: flex; justify-content: space-around; }
+#popup-nav a {
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+#popup-nav a:hover {
+  color: #fff;
+  background-color: #0077e6;
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3); opacity: 0; pointer-events: none; z-index: 1099;
+  transition: opacity 0.3s;
+}
+#overlay.active { opacity: 1; pointer-events: auto; }
+
+/* SIDE PANEL */
+#side-panel {
+  position: fixed; top: 50%; right: -520px; width: 500px; height: 80%;
+  background: #f0f8ff;  /* Alice Blue */
+  box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+  z-index: 998; transition: right 0.4s ease;
+  padding: 20px; overflow-y: auto;
+  border-radius: 15px;
+  transform: translateY(-50%);
+}
+#side-panel.show { right: 20px; }
+#side-panel h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1e3d7b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+#side-panel p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  text-align: justify;
+}
+
+/* UNIFORM SIDE PANEL IMAGE SIZE */
+#side-panel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 15px auto;
+  display: block;
+  box-shadow: 0 4px 15px rgba(30,144,255,0.3);
+}
+
+/* CLOSE BUTTON */
+#side-panel .close-btn {
+  position: relative;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#side-panel .close-btn:hover { background: #0077e6; }
+
+/* MARKERS */
+.blue-circle {
+  background-color: #1e90ff;
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 3px solid white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.blue-circle.shrink { transform: scale(0); opacity: 0; }
+
+.glow-marker {
+  width: 20px; height: 20px; background: #43a7ff; border-radius: 50%;
+  box-shadow: 0 0 12px #43a7ff, 0 0 25px #43a7ff;
+}
+
+/* SEARCH BAR */
+
+#search-input::placeholder {
+  color: #007bff;   /* kulay ng placeholder */
+  font-size: 20px;  /* laki ng text */
+  opacity: 1;       /* para hindi faded */
+}
+#search-container {
+  position: fixed; top: 20px; right: 700px;
+  z-index: 10000; width: 280px;
+}
+#search-input {
+  width: 100%; padding: 12px 16px;
+  border-radius: 12px; border: none; font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); outline: none;
+}
+#search-results {
+  position: absolute; top: 50px; width: 100%;
+  background: #e6f2ff; border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-height: 250px; overflow-y: auto; display: none;
+}
+#search-results div {
+  padding: 12px; cursor: pointer; border-bottom: 1px solid #ddd;
+  font-size: 18px; color: #1e3d7b; font-weight: bold;
+}
+#search-results div:hover {
+  background: rgba(30,144,255,0.2);
+  border-radius: 8px;
+  color: #0077e6;
+}
+
+/* SPOT BUTTON (OPTIONAL) */
+.spot-btn {
+  font-size: 26px !important;
+  background-color: #1e90ff;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+.spot-btn:hover {
+  background-color: #0077e6;
+}
+
+/* RESPONSIVE ADJUSTMENT */
+@media screen and (max-width: 768px){
+  #side-panel { width: 90%; }
+  #search-container { right: 20px; width: 90%; }
+}
+/* I-align sa left side ng mapa at blue style */
+.leaflet-routing-container {
+    left: -1100px !important;          /* distance mula sa kaliwa ng mapa */
+    top: 300px !important;          /* taas mula sa top, puwede adjust */
+    transform: none;                /* hindi kailangan translate kung left-aligned */
+    width: auto !important;         /* adjust width kung kailangan */
+    max-width: 350px;               /* limit ang lapad */
+    background: rgba(30,144,255,0.95); /* semi-transparent blue background */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 10000;
+    color: white;                    /* white text para contrast sa blue bg */
+    font-weight: bold;
+}
+
+/* Optional: blue arrows/icons sa directions */
+.leaflet-routing-container * {
+    color: white;                    /* lahat ng text white */
+}
+
+

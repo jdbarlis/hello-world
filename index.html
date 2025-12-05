@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Penaranda Tourist Map</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet Routing Machine CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+<!-- External CSS -->
+<link rel="stylesheet" href="../CSS/styles.css" />
+</head>
+<body>
+
+<header>
+  <button id="menu-btn">☰ Menu</button>
+  <nav id="popup-nav">
+    <ul>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+  
+</header>
+
+<div id="overlay"></div>
+
+<!-- SEARCH BAR -->
+<div id="search-container">
+  <input type="text" id="search-input" placeholder="Search location...">
+  <div id="search-results"></div>
+</div>
+
+<!-- Side Panel -->
+<div id="side-panel">
+  <div id="panel-content"></div>
+  <button class="close-btn">Close</button>
+</div>
+
+<!-- Map -->
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Leaflet Routing Machine JS -->
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+<!-- External JS -->
+<script src="../JS/script.js"></script>
+
+</body>
+</html>
